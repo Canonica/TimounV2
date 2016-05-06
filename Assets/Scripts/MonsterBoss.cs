@@ -3,41 +3,36 @@ using System.Collections;
 using System.Collections.Generic;
 using System;
 
-public class Player : Entity {
+public class MonsterBoss : Entity {
 
-    public int _comboMultiplier;
+    public List<Player> _listOfPlayer;
 
-    //public List<Monster> _listOfMonsters;
-    
+    void Start()
+    {
+        //listOfPlayer = PlayerManager.instance.listOfPlayer;
+    }
 
     public override void TakeDamage(int parAmount)
     {
         this._pv -= parAmount;
     }
 
+
     public override void TakeBreathCost(int parAmount, int parBreathMultiplier)
     {
-        this._breath -= parAmount * parBreathMultiplier;
     }
 
     public override void Back()
     {
-
     }
 
     public override void Death()
     {
-
     }
 
-
-    void Block()
+    void DoSomething()
     {
 
     }
 
-    void BreathLess()
-    {
-
-    }
 }
