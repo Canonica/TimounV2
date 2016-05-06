@@ -14,7 +14,7 @@ public class TurnManager : MonoBehaviour {
     public int _whoPlays;
 
     public Text _textTurn;
-    //public PlayerManager _allPlayers;
+    public PlayerManager _allPlayers;
 
     public static TurnManager GetInstance()
     {
