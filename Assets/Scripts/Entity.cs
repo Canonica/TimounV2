@@ -2,7 +2,7 @@
 using System.Collections;
 using System.Collections.Generic;
 
-public class Entity : MonoBehaviour {
+abstract public class Entity : MonoBehaviour {
 
 	public enum EntityStates
     {
@@ -18,13 +18,11 @@ public class Entity : MonoBehaviour {
 
     //public List<Attack> _listOfAttacks;
 
-    void TakeDamage(int parAmount)
-    {
+    abstract public void TakeDamage(int parAmount);
 
-    }
+    abstract public void TakeBreathCost(int parAmount, int parBreathMultiplier);
 
-    void Death()
-    {
+    abstract public void Back();
 
-    }
+    abstract public void Death();
 }
