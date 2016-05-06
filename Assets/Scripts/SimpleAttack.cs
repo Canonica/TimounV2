@@ -7,6 +7,6 @@ public class SimpleAttack : Attack {
     public override void Execute(Entity parEntity)
     {
         parEntity.TakeDamage(this._damage);
-        parEntity.TakeBreathCost(this._damageToBreath, this._breathMultiplier);
+        this.GetComponent<Entity>().TakeBreathCost(this._damageToBreath, this._breathMultiplier);
     }
 }
