@@ -57,9 +57,8 @@ public class MonsterBoss : Entity {
     IEnumerator Attack(Entity parTarget)
     {
         _isAttacking = true;
-
-        Debug.Log(TurnManager.GetInstance()._currentTimeTurn);
-        while (TurnManager.GetInstance()._currentTimeTurn>1.0f)
+        
+        while (TurnManager.GetInstance()._currentTimeTurn>0.0f)
         {
             yield return new WaitForSeconds(1.0f);
             this.GetComponent<SimpleAttack>().Execute(parTarget);
