@@ -1,0 +1,153 @@
+fileFormatVersion: 2
+guid: ce923aaf829daf54cbbef47e8b64bd71
+timeCreated: 1459785446
+licenseType: Pro
+ModelImporter:
+  serializedVersion: 19
+  fileIDToRecycleName:
+    100000: B_arms_D
+    100002: B_arms_G
+    100004: B_foot_end_D
+    100006: B_foot_end_D 1
+    100008: B_foot_end_G
+    100010: B_foot_G
+    100012: B_hands_D
+    100014: B_hands_G
+    100016: B_head
+    100018: B_head_end
+    100020: B_jambes_D
+    100022: B_jambes_G
+    100024: B_lunette
+    100026: B_mollet_D
+    100028: B_mollet_G
+    100030: B_neck
+    100032: B_shoulder_D
+    100034: B_shoulder_G
+    100036: B_vertebre_01
+    100038: body
+    100040: corps_low
+    100042: CTRL_lunette
+    100044: //RootNode
+    100046: IK Chain001
+    100048: IK Chain002
+    100050: IK Chain003
+    100052: IK Chain004
+    100054: L_Arm
+    100056: L_leg
+    100058: lunette
+    100060: MASTER
+    100062: neck
+    100064: Pelvis
+    100066: pelvis
+    100068: R_arm
+    100070: R_leg
+    100072: vetements
+    400000: B_arms_D
+    400002: B_arms_G
+    400004: B_foot_end_D
+    400006: B_foot_end_D 1
+    400008: B_foot_end_G
+    400010: B_foot_G
+    400012: B_hands_D
+    400014: B_hands_G
+    400016: B_head
+    400018: B_head_end
+    400020: B_jambes_D
+    400022: B_jambes_G
+    400024: B_lunette
+    400026: B_mollet_D
+    400028: B_mollet_G
+    400030: B_neck
+    400032: B_shoulder_D
+    400034: B_shoulder_G
+    400036: B_vertebre_01
+    400038: body
+    400040: corps_low
+    400042: CTRL_lunette
+    400044: //RootNode
+    400046: IK Chain001
+    400048: IK Chain002
+    400050: IK Chain003
+    400052: IK Chain004
+    400054: L_Arm
+    400056: L_leg
+    400058: lunette
+    400060: MASTER
+    400062: neck
+    400064: Pelvis
+    400066: pelvis
+    400068: R_arm
+    400070: R_leg
+    400072: vetements
+    4300000: corps_low
+    4300002: vetements
+    4300004: lunette
+    7400000: Take 001
+    9500000: //RootNode
+    13700000: corps_low
+    13700002: lunette
+    13700004: vetements
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleRotations: 1
+    optimizeGameObjects: 0
+    motionNodeName: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    animationCompression: 1
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    clipAnimations: []
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    importBlendShapes: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    keepQuads: 0
+    weldVertices: 1
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 3
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    human: []
+    skeleton: []
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    rootMotionBoneName: 
+    hasTranslationDoF: 0
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 2
+  humanoidOversampling: 1
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
