@@ -1,145 +1,182 @@
 ﻿using UnityEngine;
 using System.Collections;
-using System.Collections.Generic;
 using DG.Tweening;
-using XInputDotNetPure;
+using UnityEngine.UI;
 public class PlayerManager : MonoBehaviour {
-    private static PlayerManager _instance = null;
+    public Player[] players;
+    public Player selectedPlayer;
+    public Player advancedPlayer;
 
-    public Player _selectedPlayer;
-    public Player _advancedPlayer;
-    public List<Entity> _playerList = new List<Entity>();
+    public GameObject[] indicatorPlayer;
+    public Vector3 initialCamPosition;
+    public Quaternion initialCamRotation;
+    bool isInCombo;
 
-    public List<GameObject> _indicatorPlayer = new List<GameObject>();
-    public Vector3 _initialCamPosition ;
+    bool isInSelect;
 
-    public static PlayerManager GetInstance()
-    {
-        return _instance;
-    }
-
-    void Awake()
-    {
-        _instance = this;
-        DontDestroyOnLoad(gameObject);
-    }
+    public Image Left_Stick;
+    public Image Croix;
+    public Image Button_RT;
     // Use this for initialization
     void Start () {
-        GameObject[] tempPlayers = GameObject.FindGameObjectsWithTag("Player");
-        foreach(GameObject parPlayers in tempPlayers)
+	    for(int i = 0; i < players.Length; i++)
         {
-            _playerList.Add(parPlayers.GetComponent<Player>());
+            players[i].playerID = i;
+            indicatorPlayer[i].SetActive(false);
         }
-        _playerList.Reverse();
-        HideIndicators();
-        _initialCamPosition = Camera.main.transform.position;
-    }
+        isInCombo = false;
+        initialCamPosition = Camera.main.transform.position;
+        initialCamRotation = Camera.main.transform.rotation;
+        isInSelect = false;
 
+        Left_Stick.DOFade(0, 0.2f);
+        Croix.DOFade(0, 0.2f);
+        Button_RT.DOFade(0, 0.2f);
+    }
+	
 	// Update is called once per frame
 	void Update () {
-        
-        if (XInput.instance.getButton (0, 'R') == ButtonState.Pressed)
+        Debug.Log(isInCombo);
+        if (Input.GetKey(KeyCode.G))
         {
-            Debug.Log("test");
+            //Camera.main.DOFieldOfView(30, 1);
+            
+            
         }
-        //float h = Input.GetAxisRaw("L_YAxis_1");
-        //float v = Input.GetAxisRaw("L_XAxis_1");
 
-        //float triggerRight = Input.GetAxisRaw("TriggersR_1");
-        //float triggerLeft = Input.GetAxisRaw("TriggersL_1");
-
-        if (TurnManager.GetInstance()._whoPlays == 0)
+        if (Input.GetKey(KeyCode.H))
         {
-            //if (Input.GetKey(KeyCode.A) || v > 0.4 && advancedPlayer == null )
-            //{
-            //    if (!players[0].isAdvanced)
-            //    {
-            //        selectedPlayer = players[0];
-            //        HideIndicators();
-            //        indicatorPlayer[0].SetActive(true);
-            //    }
-            //}
-            //if (Input.GetKey(KeyCode.Z) || h > 0.4 && advancedPlayer == null)
-            //{
-            //    if (!players[1].isAdvanced)
-            //    {
-            //        selectedPlayer = players[1];
-            //        HideIndicators();
-            //        indicatorPlayer[1].SetActive(true);
-            //    }
-            //}
-            //if (Input.GetKey(KeyCode.E) || h < -0.4 && advancedPlayer == null)
-            //{
-            //    if (!players[2].isAdvanced)
-            //    {
-            //        selectedPlayer = players[2];
-            //        HideIndicators();
-            //        indicatorPlayer[2].SetActive(true);
-            //    }
-            //}
+            
+        }
+        float h = Input.GetAxisRaw("L_YAxis_1");
+        float v = Input.GetAxisRaw("L_XAxis_1");
 
-            //if( h == 0 && v == 0)
-            //{
-            //    selectedPlayer = null;
-            //    HideIndicators();
-            //}
+        float triggerRight = Input.GetAxisRaw("TriggersR_1");
+        float triggerLeft = Input.GetAxisRaw("TriggersL_1");
 
-            //if (triggerRight > 0.5f && selectedPlayer != null && !selectedPlayer.isAdvanced )
-            //{
-            //    allBack();
-            //    selectedPlayer.isAdvanced = true;
-            //    advancedPlayer = selectedPlayer;
-            //    advancedPlayer.Advance();
-              
-            //}
-            //if (triggerLeft > 0.5f && advancedPlayer != null)
-            //{
-            //    //advancedPlayer.isAdvanced = false;
-            //    //advancedPlayer.Back();
-            //    advancedPlayer = null;
-            //    Camera.main.transform.DOLookAt(initialCamPosition, 0.5f);
-            //    Camera.main.DOFieldOfView(60, 1f);
-            //}
+        if (TurnManager.GetInstance().whoPlays == 0)
+        {
+            if (Input.GetKey(KeyCode.A) || v > 0.4 && advancedPlayer == null )
+            {
+                if (!players[0].isAdvanced)
+                {
+                    selectedPlayer = players[0];
+                    HideIndicators();
+                    indicatorPlayer[0].SetActive(true);
+                    indicatorPlayer[0].GetComponentInChildren<ParticleSystem>().Play();
+                    Left_Stick.DOFade(1, 0.2f);
+                    //Croix.DOFade(1, 0.2f);
+                    //Button_RT.DOFade(1, 0.2f);
+                }
+            }
+            if (Input.GetKey(KeyCode.Z) || h > 0.4 && advancedPlayer == null)
+            {
+                if (!players[1].isAdvanced)
+                {
+                    selectedPlayer = players[1];
+                    HideIndicators();
+                    indicatorPlayer[1].SetActive(true);
+                    indicatorPlayer[1].GetComponentInChildren<ParticleSystem>().Play();
+                    Left_Stick.DOFade(1, 0.2f);
+                    //Croix.DOFade(1, 0.2f);
+                    //Button_RT.DOFade(1, 0.2f);
+                }
+            }
+            if (Input.GetKey(KeyCode.E) || h < -0.4 && advancedPlayer == null)
+            {
+                if (!players[2].isAdvanced)
+                {
+                    selectedPlayer = players[2];
+                    HideIndicators();
+                    indicatorPlayer[2].SetActive(true);
+                    indicatorPlayer[2].GetComponentInChildren<ParticleSystem>().Play();
+                    Left_Stick.DOFade(1, 0.2f);
+                    //Croix.DOFade(1, 0.2f);
+                    //Button_RT.DOFade(1, 0.2f);
+                }
+            }
 
-            //if (Input.GetButtonDown("A_button_1") && advancedPlayer.isAdvanced && advancedPlayer.canAttack && !isInCombo)
-            //{
-            //    advancedPlayer.AttackA();
-            //}
+            if( h == 0 && v == 0)
+            {
+                selectedPlayer = null;
+                HideIndicators();
+                Left_Stick.DOFade(0, 0.2f);
+                Croix.DOFade(0, 0.2f);
+                Button_RT.DOFade(0, 0.2f);
+            }
 
-            //if (Input.GetButtonDown("B_button_1") && advancedPlayer.isAdvanced && advancedPlayer.canAttack && !isInCombo)
-            //{
-            //    advancedPlayer.AttackB();
-            //}
+            if (triggerRight > 0.5f && selectedPlayer != null && !selectedPlayer.isAdvanced )
+            {
+                allBack();
+                selectedPlayer.isAdvanced = true;
+                advancedPlayer = selectedPlayer;
+                advancedPlayer.Advance();
+                Croix.DOFade(1, 0.2f);
+                Button_RT.DOFade(1, 0.2f);
 
-            //if(Input.GetButtonDown("X_button_1") && advancedPlayer.isAdvanced && advancedPlayer.canAttack && !isInCombo)
-            //{
-            //    StartCoroutine(MyCombo());
-            //}
+            }
+            if (triggerLeft > 0.5f && advancedPlayer != null)
+            {
+                advancedPlayer.isAdvanced = false;
+                advancedPlayer.Back();
+                advancedPlayer = null;
+                Camera.main.transform.DOMove(initialCamPosition, 0.5f);
+                Camera.main.transform.DORotateQuaternion(initialCamRotation, 0.5f);
+                Camera.main.DOFieldOfView(60, 1f);
+            }
 
-            //if (Input.GetButtonDown("A_button_1") && advancedPlayer.isAdvanced && advancedPlayer.canAttack && isInCombo)
-            //{
-            //    advancedPlayer.AttackCombo();
-            //}
+            if (Input.GetButtonDown("A_button_1") && advancedPlayer.isAdvanced && advancedPlayer.canAttack && !isInCombo)
+            {
+                advancedPlayer.AttackA();
+            }
+
+            if (Input.GetButtonDown("B_button_1") && advancedPlayer.isAdvanced && advancedPlayer.canAttack && !isInCombo)
+            {
+                advancedPlayer.AttackB();
+            }
+
+            if(Input.GetButtonDown("X_button_1") && advancedPlayer.isAdvanced && advancedPlayer.canAttack && !isInCombo)
+            {
+                StartCoroutine(MyCombo());
+            }
+
+            if (Input.GetButtonDown("A_button_1") && advancedPlayer.isAdvanced && advancedPlayer.canAttack && isInCombo)
+            {
+                advancedPlayer.AttackCombo();
+            }
         }
     }
 
-    public void AllBack()
+    public void allBack()
     {
-        foreach(Player players in _playerList)
+        for (int i = 0; i < players.Length; i++)
         {
-            //players.Back();
+            players[i].Back();
         }
-            //Camera.main.transform.DOLookAt(initialCamPosition, 0.5f);
-            //Camera.main.DOFieldOfView(60, 1f);
+
+            Camera.main.transform.DOMove(initialCamPosition, 0.5f);
+            Camera.main.transform.DORotateQuaternion(initialCamRotation, 0.5f);
+            Camera.main.DOFieldOfView(60, 1f);
     }
 
     void HideIndicators()
     {
-        foreach (GameObject parIndicators in _indicatorPlayer)
+        for(int i =0; i < indicatorPlayer.Length; i++)
         {
-            parIndicators.SetActive(false);
+            indicatorPlayer[i].SetActive(false);
         }
     }
 
-    
+    IEnumerator MyCombo()
+    {
+        isInCombo = true;
+        float timer = 1;
+        while (timer > 0)
+        {
+            timer -= Time.deltaTime;
+            yield return new WaitForEndOfFrame();
+        }
+        isInCombo = false;
+        yield break;
+    }
 }

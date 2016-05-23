@@ -1,0 +1,394 @@
+fileFormatVersion: 2
+guid: 8d1bda53d6fbe7148bd55d1cc34bd423
+timeCreated: 1459785445
+licenseType: Pro
+ModelImporter:
+  serializedVersion: 19
+  fileIDToRecycleName:
+    100000: B_arms_D
+    100002: B_arms_G
+    100004: B_foot_end_D
+    100006: B_foot_end_D 1
+    100008: B_foot_end_G
+    100010: B_foot_G
+    100012: B_hands_D
+    100014: B_hands_G
+    100016: B_head
+    100018: B_head_end
+    100020: B_jambes_D
+    100022: B_jambes_G
+    100024: B_lunette
+    100026: B_mollet_D
+    100028: B_mollet_G
+    100030: B_neck
+    100032: B_shoulder_D
+    100034: B_shoulder_G
+    100036: B_vertebre_01
+    100038: body
+    100040: Box001
+    100042: Box002
+    100044: Box003
+    100046: Box004
+    100048: Box005
+    100050: Box006
+    100052: Camera001
+    100054: Circle001
+    100056: Compass001
+    100058: corps_low
+    100060: CTRL_Coude_D
+    100062: CTRL_Coude_Gerrw
+    100064: CTRL_lunette
+    100066: Cylinder002
+    100068: Cylinder003
+    100070: Daylight001
+    100072: //RootNode
+    100074: head
+    100076: Helper_Coude_D
+    100078: Helper_Coude_G
+    100080: IK Chain001
+    100082: IK Chain002
+    100084: IK Chain003
+    100086: IK Chain004
+    100088: L_Arm
+    100090: L_leg
+    100092: Line001
+    100094: lunette
+    100096: MASTER
+    100098: neck
+    100100: Object002
+    100102: Object003
+    100104: Particle View 001
+    100106: Pelvis
+    100108: pelvis
+    100110: R_arm
+    100112: R_leg
+    100114: Rectangle001
+    100116: Rectangle002
+    100118: Sky002
+    100120: Sun001
+    100122: vetements
+    400000: B_arms_D
+    400002: B_arms_G
+    400004: B_foot_end_D
+    400006: B_foot_end_D 1
+    400008: B_foot_end_G
+    400010: B_foot_G
+    400012: B_hands_D
+    400014: B_hands_G
+    400016: B_head
+    400018: B_head_end
+    400020: B_jambes_D
+    400022: B_jambes_G
+    400024: B_lunette
+    400026: B_mollet_D
+    400028: B_mollet_G
+    400030: B_neck
+    400032: B_shoulder_D
+    400034: B_shoulder_G
+    400036: B_vertebre_01
+    400038: body
+    400040: Box001
+    400042: Box002
+    400044: Box003
+    400046: Box004
+    400048: Box005
+    400050: Box006
+    400052: Camera001
+    400054: Circle001
+    400056: Compass001
+    400058: corps_low
+    400060: CTRL_Coude_D
+    400062: CTRL_Coude_Gerrw
+    400064: CTRL_lunette
+    400066: Cylinder002
+    400068: Cylinder003
+    400070: Daylight001
+    400072: //RootNode
+    400074: head
+    400076: Helper_Coude_D
+    400078: Helper_Coude_G
+    400080: IK Chain001
+    400082: IK Chain002
+    400084: IK Chain003
+    400086: IK Chain004
+    400088: L_Arm
+    400090: L_leg
+    400092: Line001
+    400094: lunette
+    400096: MASTER
+    400098: neck
+    400100: Object002
+    400102: Object003
+    400104: Particle View 001
+    400106: Pelvis
+    400108: pelvis
+    400110: R_arm
+    400112: R_leg
+    400114: Rectangle001
+    400116: Rectangle002
+    400118: Sky002
+    400120: Sun001
+    400122: vetements
+    2300000: Box001
+    2300002: Box002
+    2300004: Box003
+    2300006: Box004
+    2300008: Box005
+    2300010: Box006
+    2300012: Cylinder002
+    2300014: Cylinder003
+    2300016: Helper_Coude_D
+    2300018: Helper_Coude_G
+    2300020: Line001
+    2300022: Object002
+    2300024: Object003
+    3300000: Box001
+    3300002: Box002
+    3300004: Box003
+    3300006: Box004
+    3300008: Box005
+    3300010: Box006
+    3300012: Cylinder002
+    3300014: Cylinder003
+    3300016: Helper_Coude_D
+    3300018: Helper_Coude_G
+    3300020: Line001
+    3300022: Object002
+    3300024: Object003
+    4300000: corps_low
+    4300002: vetements
+    4300004: Box001
+    4300006: Box002
+    4300008: Box003
+    4300010: Line001
+    4300012: Box004
+    4300014: Object002
+    4300016: Cylinder002
+    4300018: Box005
+    4300020: Cylinder003
+    4300022: Object003
+    4300024: Box006
+    4300026: lunette
+    4300028: Helper_Coude_G
+    4300030: Helper_Coude_D
+    7400000: punch
+    9500000: //RootNode
+    13700000: corps_low
+    13700002: lunette
+    13700004: vetements
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleRotations: 1
+    optimizeGameObjects: 0
+    motionNodeName: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    animationCompression: 1
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    clipAnimations:
+    - serializedVersion: 16
+      name: punch
+      takeName: Take 001
+      firstFrame: 0
+      lastFrame: 15
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: Box001
+        weight: 1
+      - path: Box002
+        weight: 1
+      - path: Box003
+        weight: 1
+      - path: Box004
+        weight: 1
+      - path: Box005
+        weight: 1
+      - path: Box006
+        weight: 1
+      - path: Camera001
+        weight: 1
+      - path: Circle001
+        weight: 1
+      - path: Compass001
+        weight: 1
+      - path: Compass001/Daylight001
+        weight: 1
+      - path: Compass001/Daylight001/Sky002
+        weight: 1
+      - path: Compass001/Daylight001/Sun001
+        weight: 1
+      - path: corps_low
+        weight: 1
+      - path: CTRL_Coude_D
+        weight: 1
+      - path: CTRL_Coude_D/Helper_Coude_D
+        weight: 1
+      - path: CTRL_Coude_Gerrw
+        weight: 1
+      - path: CTRL_Coude_Gerrw/Helper_Coude_G
+        weight: 1
+      - path: Cylinder002
+        weight: 1
+      - path: Cylinder003
+        weight: 1
+      - path: Line001
+        weight: 1
+      - path: MASTER
+        weight: 1
+      - path: MASTER/L_leg
+        weight: 1
+      - path: MASTER/L_leg/IK Chain001
+        weight: 1
+      - path: MASTER/Pelvis
+        weight: 1
+      - path: MASTER/Pelvis/B_jambes_D
+        weight: 1
+      - path: MASTER/Pelvis/B_jambes_D/B_mollet_D
+        weight: 1
+      - path: MASTER/Pelvis/B_jambes_D/B_mollet_D/B_foot_end_D
+        weight: 1
+      - path: MASTER/Pelvis/B_jambes_D/B_mollet_D/B_foot_end_D/B_foot_end_D 1
+        weight: 1
+      - path: MASTER/Pelvis/B_jambes_G
+        weight: 1
+      - path: MASTER/Pelvis/B_jambes_G/B_mollet_G
+        weight: 1
+      - path: MASTER/Pelvis/B_jambes_G/B_mollet_G/B_foot_G
+        weight: 1
+      - path: MASTER/Pelvis/B_jambes_G/B_mollet_G/B_foot_G/B_foot_end_G
+        weight: 1
+      - path: MASTER/Pelvis/body
+        weight: 1
+      - path: MASTER/Pelvis/body/neck
+        weight: 1
+      - path: MASTER/Pelvis/body/neck/B_shoulder_D
+        weight: 1
+      - path: MASTER/Pelvis/body/neck/B_shoulder_D/B_arms_D
+        weight: 1
+      - path: MASTER/Pelvis/body/neck/B_shoulder_D/B_arms_D/B_hands_D
+        weight: 1
+      - path: MASTER/Pelvis/body/neck/B_shoulder_G
+        weight: 1
+      - path: MASTER/Pelvis/body/neck/B_shoulder_G/B_arms_G
+        weight: 1
+      - path: MASTER/Pelvis/body/neck/B_shoulder_G/B_arms_G/B_hands_G
+        weight: 1
+      - path: MASTER/Pelvis/body/neck/head
+        weight: 1
+      - path: MASTER/Pelvis/body/neck/L_Arm
+        weight: 1
+      - path: MASTER/Pelvis/body/neck/L_Arm/IK Chain003
+        weight: 1
+      - path: MASTER/Pelvis/body/neck/R_arm
+        weight: 1
+      - path: MASTER/Pelvis/body/neck/R_arm/IK Chain004
+        weight: 1
+      - path: MASTER/Pelvis/pelvis
+        weight: 1
+      - path: MASTER/Pelvis/pelvis/B_vertebre_01
+        weight: 1
+      - path: MASTER/Pelvis/pelvis/B_vertebre_01/B_neck
+        weight: 1
+      - path: MASTER/Pelvis/pelvis/B_vertebre_01/B_neck/B_head
+        weight: 1
+      - path: MASTER/Pelvis/pelvis/B_vertebre_01/B_neck/B_head/B_head_end
+        weight: 1
+      - path: MASTER/Pelvis/pelvis/B_vertebre_01/B_neck/B_head/B_head_end/CTRL_lunette
+        weight: 1
+      - path: MASTER/Pelvis/pelvis/B_vertebre_01/B_neck/B_head/B_head_end/CTRL_lunette/B_lunette
+        weight: 1
+      - path: MASTER/Pelvis/pelvis/B_vertebre_01/B_neck/B_head/B_head_end/CTRL_lunette/B_lunette/lunette
+        weight: 1
+      - path: MASTER/R_leg
+        weight: 1
+      - path: MASTER/R_leg/IK Chain002
+        weight: 1
+      - path: Object002
+        weight: 1
+      - path: Object003
+        weight: 1
+      - path: Particle View 001
+        weight: 1
+      - path: Rectangle001
+        weight: 1
+      - path: Rectangle002
+        weight: 1
+      - path: vetements
+        weight: 1
+      maskType: 0
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    importBlendShapes: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    keepQuads: 0
+    weldVertices: 1
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 3
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    human: []
+    skeleton: []
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    rootMotionBoneName: 
+    hasTranslationDoF: 0
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 2
+  humanoidOversampling: 1
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

@@ -6,15 +6,15 @@ public class TurnManager : MonoBehaviour {
 
     private static TurnManager instance = null;
 
-    public Image _timer;
-    public float _maxTimeTurn;
-    public float _currentTimeTurn;
-    public bool _isPlaying;
+    public Image timer;
+    public float maxTimeTurn;
+    public float currentTimeTurn;
+    public bool isPlaying;
 
-    public int _whoPlays;
+    public int whoPlays;
 
-    public Text _textTurn;
-    public PlayerManager _allPlayers;
+    public Text textTurn;
+    public PlayerManager allPlayers;
 
     public static TurnManager GetInstance()
     {
@@ -25,22 +25,22 @@ public class TurnManager : MonoBehaviour {
     {
         instance = this;
         DontDestroyOnLoad(gameObject);
-        _maxTimeTurn = 10;
-        _currentTimeTurn = _maxTimeTurn;
-        _isPlaying = false;
-        _whoPlays = 0;
-        _textTurn.text = "Player Turn";
+        maxTimeTurn = 10;
+        currentTimeTurn = maxTimeTurn;
+        isPlaying = false;
+        whoPlays = 0;
+        textTurn.text = "Player Turn";
     }
 
     void Update()
     {
-        _currentTimeTurn -= Time.deltaTime;
-        if (!_isPlaying)
+        currentTimeTurn -= Time.deltaTime;
+        if (!isPlaying)
         {
-            _isPlaying = true;
-            StartCoroutine(WaitForCdfloat(_maxTimeTurn));
+            isPlaying = true;
+            StartCoroutine(WaitForCdfloat(maxTimeTurn));
         }
-        if(_currentTimeTurn <= 0)
+        if(currentTimeTurn <= 0)
         {
             changeTurn();
         }
@@ -48,39 +48,39 @@ public class TurnManager : MonoBehaviour {
 
     void changeTurn()
     {
-        _currentTimeTurn = _maxTimeTurn;
-        _timer.fillAmount = 1;
-        StartCoroutine(WaitForCdfloat(_maxTimeTurn));
-        if(_whoPlays == 0)
+        currentTimeTurn = maxTimeTurn;
+        timer.fillAmount = 1;
+        StartCoroutine(WaitForCdfloat(maxTimeTurn));
+        if(whoPlays == 0)
         {
-            _whoPlays = 1;
-            _textTurn.text = "Monster Turn";
-            //_allPlayers.allBack();
-            //_allPlayers.advancedPlayer = null;
+            whoPlays = 1;
+            textTurn.text = "Monster Turn";
+            allPlayers.allBack();
+            allPlayers.advancedPlayer = null;
         }
-        else if (_whoPlays == 1)
+        else if (whoPlays == 1)
         {
-            _whoPlays = 0;
-            _textTurn.text = "Player Turn";
+            whoPlays = 0;
+            textTurn.text = "Player Turn";
         }
-        _textTurn.transform.DOShakePosition(0.1f, 10);
+        textTurn.transform.DOShakePosition(0.1f, 10);
     }
 
-    public IEnumerator WaitForCdfloat(float parCdTimer)
+    public IEnumerator WaitForCdfloat(float cdTimer)
     {
-            _timer.fillAmount = 1;
-            yield return StartCoroutine(fillIcon(_timer, parCdTimer));
+            timer.fillAmount = 1;
+            yield return StartCoroutine(fillIcon(timer, cdTimer));
     }
 
-    public IEnumerator fillIcon(Image parIcon, float parCdTimer)
+    public IEnumerator fillIcon(Image icon, float cdTimer)
     {
-        float _timer = _maxTimeTurn;
-        while (_timer <= parCdTimer)
+        float timer = maxTimeTurn;
+        while (timer <= cdTimer)
         {
-            parIcon.fillAmount = _timer / parCdTimer;
-            _timer -= Time.deltaTime;
+            icon.fillAmount = timer / cdTimer;
+            timer -= Time.deltaTime;
             yield return new WaitForEndOfFrame();
         }
-        _timer = 0;
+        timer = 0;
     }
 }
