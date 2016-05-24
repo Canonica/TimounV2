@@ -13,6 +13,9 @@ public class PlayerManager : MonoBehaviour {
     public List<GameObject> _indicatorPlayer = new List<GameObject>();
     public Vector3 _initialCamPosition ;
 
+    bool isButtonA;
+    bool isButtonB;
+
     public static PlayerManager GetInstance()
     {
         return _instance;
@@ -42,69 +45,75 @@ public class PlayerManager : MonoBehaviour {
         {
             Debug.Log("test");
         }
-        //float h = Input.GetAxisRaw("L_YAxis_1");
-        //float v = Input.GetAxisRaw("L_XAxis_1");
+        float h = XInput.instance.getYStick(0);
+        float v = XInput.instance.getXStick(0);
 
-        //float triggerRight = Input.GetAxisRaw("TriggersR_1");
-        //float triggerLeft = Input.GetAxisRaw("TriggersL_1");
+        float triggerRight = XInput.instance.getRightTrigger(0);
+        float triggerLeft = XInput.instance.getLeftTrigger(0);
 
         if (TurnManager.GetInstance()._whoPlays == 0)
         {
-            //if (Input.GetKey(KeyCode.A) || v > 0.4 && advancedPlayer == null )
-            //{
-            //    if (!players[0].isAdvanced)
-            //    {
-            //        selectedPlayer = players[0];
-            //        HideIndicators();
-            //        indicatorPlayer[0].SetActive(true);
-            //    }
-            //}
-            //if (Input.GetKey(KeyCode.Z) || h > 0.4 && advancedPlayer == null)
-            //{
-            //    if (!players[1].isAdvanced)
-            //    {
-            //        selectedPlayer = players[1];
-            //        HideIndicators();
-            //        indicatorPlayer[1].SetActive(true);
-            //    }
-            //}
-            //if (Input.GetKey(KeyCode.E) || h < -0.4 && advancedPlayer == null)
-            //{
-            //    if (!players[2].isAdvanced)
-            //    {
-            //        selectedPlayer = players[2];
-            //        HideIndicators();
-            //        indicatorPlayer[2].SetActive(true);
-            //    }
-            //}
+            if (v > 0.4 && _advancedPlayer == null)
+            {
+                if (!_playerList[0].isAdvanced)
+                {
+                    
+                    _selectedPlayer = (Player)_playerList[0];
+                    HideIndicators();
+                    _indicatorPlayer[0].SetActive(true);
+                }
+            }
+            if (Input.GetKey(KeyCode.Z) || h > 0.4 && _advancedPlayer == null)
+            {
+                if (!_playerList[2].isAdvanced)
+                {
+                    _selectedPlayer = (Player)_playerList[2];
+                    HideIndicators();
+                    _indicatorPlayer[2].SetActive(true);
+                }
+            }
+            if (Input.GetKey(KeyCode.E) || h < -0.4 && _advancedPlayer == null)
+            {
+                if (!_playerList[1].isAdvanced)
+                {
+                    _selectedPlayer = (Player)_playerList[1];
+                    HideIndicators();
+                    _indicatorPlayer[1].SetActive(true);
+                }
+            }
 
-            //if( h == 0 && v == 0)
-            //{
-            //    selectedPlayer = null;
-            //    HideIndicators();
-            //}
+            if( h == 0 && v == 0)
+            {
+                _selectedPlayer = null;
+                HideIndicators();
+            }
 
-            //if (triggerRight > 0.5f && selectedPlayer != null && !selectedPlayer.isAdvanced )
-            //{
-            //    allBack();
-            //    selectedPlayer.isAdvanced = true;
-            //    advancedPlayer = selectedPlayer;
-            //    advancedPlayer.Advance();
-              
-            //}
-            //if (triggerLeft > 0.5f && advancedPlayer != null)
-            //{
-            //    //advancedPlayer.isAdvanced = false;
-            //    //advancedPlayer.Back();
-            //    advancedPlayer = null;
-            //    Camera.main.transform.DOLookAt(initialCamPosition, 0.5f);
-            //    Camera.main.DOFieldOfView(60, 1f);
-            //}
+            if (triggerRight > 0.5f && _selectedPlayer != null && !_selectedPlayer.isAdvanced )
+            {
+                AllBack();
+                _selectedPlayer.isAdvanced = true;
+                _advancedPlayer = _selectedPlayer;
+                _advancedPlayer.MoveToTarget(MonsterManager.GetInstance()._monsterList);
+            
+            }
+            if (triggerLeft > 0.5f && _advancedPlayer != null)
+            {
+                _advancedPlayer.isAdvanced = false;
+                _advancedPlayer.Back();
+                _advancedPlayer = null;
+                //Camera.main.transform.DOLookAt(initialCamPosition, 0.5f);
+                //Camera.main.DOFieldOfView(60, 1f);
+            }
 
-            //if (Input.GetButtonDown("A_button_1") && advancedPlayer.isAdvanced && advancedPlayer.canAttack && !isInCombo)
-            //{
-            //    advancedPlayer.AttackA();
-            //}
+            if (XInput.instance.getButton(0, 'A') == ButtonState.Pressed && !isButtonA && _advancedPlayer.isAdvanced && _advancedPlayer._breath > _advancedPlayer._listOfAttacks[0]._damageToBreath)
+            {
+                Debug.Log("toto");
+                _advancedPlayer.Attack(0, MonsterManager.GetInstance()._monsterList);
+                isButtonA = true;
+            }else if(XInput.instance.getButton(0, 'A') == ButtonState.Released && isButtonA)
+            {
+                isButtonA = false;
+            }
 
             //if (Input.GetButtonDown("B_button_1") && advancedPlayer.isAdvanced && advancedPlayer.canAttack && !isInCombo)
             //{
@@ -127,9 +136,9 @@ public class PlayerManager : MonoBehaviour {
     {
         foreach(Player players in _playerList)
         {
-            //players.Back();
+            players.Back();
         }
-            //Camera.main.transform.DOLookAt(initialCamPosition, 0.5f);
+            //Camera.main.transform.DOLookAt(_initialCamPosition, 0.5f);
             //Camera.main.DOFieldOfView(60, 1f);
     }
 

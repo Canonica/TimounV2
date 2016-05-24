@@ -13,11 +13,12 @@ abstract public class Entity : MonoBehaviour {
 
     public EntityStates _entityState;
 
+    public bool isAdvanced;
+
     public int _pv;
     public int _breath;
-
-    //public List<Attack> _listOfAttacks;
-
+    public List<Attack> _listOfAttacks;
+    
     abstract public void TakeDamage(int parAmount);
 
     abstract public void TakeBreathCost(int parAmount, int parBreathMultiplier);

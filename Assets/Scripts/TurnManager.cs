@@ -59,8 +59,7 @@ public class TurnManager : MonoBehaviour {
         {
             _whoPlays = 1;
             _textTurn.text = "Monster Turn";
-            //_allPlayers.allBack();
-            //_allPlayers.advancedPlayer = null;
+            
         }
         else if (_whoPlays == 1)
         {
@@ -72,6 +71,9 @@ public class TurnManager : MonoBehaviour {
     public IEnumerator WaitBetweenTurn(float parCdTimer)
     {
         m_changingTurn = true;
+        PlayerManager.GetInstance().AllBack();
+        //_allPlayers.AllBack();
+        PlayerManager.GetInstance()._advancedPlayer = null;
         yield return new WaitForSeconds(parCdTimer);
         changeTurn();
     }

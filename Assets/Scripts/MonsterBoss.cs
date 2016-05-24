@@ -50,7 +50,7 @@ public class MonsterBoss : Entity {
         int rand = Random.Range(0, parListOfPlayer.Count);
         Debug.Log(rand);
 
-        transform.DOMove(parListOfPlayer[rand].transform.position + parListOfPlayer[rand].transform.forward *2.0f, 0.5f).OnComplete(()=> StartCoroutine(Attack(parListOfPlayer[rand])));
+        transform.DOMove(parListOfPlayer[rand].transform.position + parListOfPlayer[rand].transform.right *2.0f, 0.5f).OnComplete(()=> StartCoroutine(Attack(parListOfPlayer[rand])));
         _isAdvanced = true;
     }
 
@@ -61,8 +61,8 @@ public class MonsterBoss : Entity {
         while (TurnManager.GetInstance()._currentTimeTurn>0.0f)
         {
             yield return new WaitForSeconds(1.0f);
-            this.GetComponent<SimpleAttack>().Execute(parTarget);
-            parTarget.transform.DOShakeScale(0.7f, 1, 10).OnComplete(() => parTarget.transform.DOKill(true));
+            _listOfAttacks[0].Execute(parTarget);
+            
         }
         Back();
     }
