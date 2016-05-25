@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 using XInputDotNetPure; // Required in C#
-
+using UnityStandardAssets.Cameras;
 public class XInput : MonoBehaviour
 {
     public static XInput instance = null;
@@ -56,9 +56,14 @@ public class XInput : MonoBehaviour
     }
 
 
-    public float getTrigger(int id)
+    public float getRightTrigger(int id)
     {
         return GamePad.GetState((PlayerIndex)(id)).Triggers.Right;
+    }
+
+    public float getLeftTrigger(int id)
+    {
+        return GamePad.GetState((PlayerIndex)(id)).Triggers.Left;
     }
 
     public ButtonState getButton(int id, char bt)
@@ -104,16 +109,28 @@ public class XInput : MonoBehaviour
                 return ButtonState.Released;
         }
     }
-    public float getXStick(int id)
+    public float getXStickLeft(int id)
     {
 
         return GamePad.GetState((PlayerIndex)(id)).ThumbSticks.Left.X;
     }
 
-    public float getYStick(int id)
+    public float getYStickLeft(int id)
     {
 
         return GamePad.GetState((PlayerIndex)(id)).ThumbSticks.Left.Y;
+    }
+
+    public float getXStickRight(int id)
+    {
+
+        return GamePad.GetState((PlayerIndex)(id)).ThumbSticks.Right.X;
+    }
+
+    public float getYStickRight(int id)
+    {
+
+        return GamePad.GetState((PlayerIndex)(id)).ThumbSticks.Right.Y;
     }
 
     IEnumerator vibration(PlayerIndex id, float time, float force1, float force2)
