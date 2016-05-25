@@ -8,6 +8,7 @@ public class PlayerManager : MonoBehaviour {
 
     public Player _selectedPlayer;
     public Player _advancedPlayer;
+    public Player _focusedCharacter;
     public List<Entity> _playerList = new List<Entity>();
 
     public List<GameObject> _indicatorPlayer = new List<GameObject>();
@@ -33,9 +34,37 @@ public class PlayerManager : MonoBehaviour {
         {
             _playerList.Add(parPlayers.GetComponent<Player>());
         }
-        _playerList.Reverse();
+        //_playerList.Reverse();
         HideIndicators();
         _initialCamPosition = Camera.main.transform.position;
+    }
+
+    void SelectPlayer(float parh, float parV)
+    {
+        if (Input.GetKey(KeyCode.Z) || parh > 0.4 && _advancedPlayer == null)
+        {
+            if (!_playerList[0].isAdvanced)
+            {
+                _selectedPlayer = (Player)_playerList[0];
+                HideIndicators();
+                _indicatorPlayer[0].SetActive(true);
+            }
+        }
+        if (Input.GetKey(KeyCode.E) || parh < -0.4 && _advancedPlayer == null)
+        {
+            if (!_playerList[1].isAdvanced)
+            {
+                _selectedPlayer = (Player)_playerList[1];
+                HideIndicators();
+                _indicatorPlayer[1].SetActive(true);
+            }
+        }
+
+        if (parh == 0 && parV == 0)
+        {
+            _selectedPlayer = null;
+            HideIndicators();
+        }
     }
 
 	// Update is called once per frame
@@ -51,9 +80,10 @@ public class PlayerManager : MonoBehaviour {
         float triggerRight = XInput.instance.getRightTrigger(0);
         float triggerLeft = XInput.instance.getLeftTrigger(0);
 
+        #region playerturn
         if (TurnManager.GetInstance()._whoPlays == 0)
         {
-            if (v > 0.4 && _advancedPlayer == null)
+            /*if (v > 0.4 && _advancedPlayer == null)
             {
                 if (!_playerList[0].isAdvanced)
                 {
@@ -62,14 +92,14 @@ public class PlayerManager : MonoBehaviour {
                     HideIndicators();
                     _indicatorPlayer[0].SetActive(true);
                 }
-            }
-            if (Input.GetKey(KeyCode.Z) || h > 0.4 && _advancedPlayer == null)
+            }*/
+            /*if (Input.GetKey(KeyCode.Z) || h > 0.4 && _advancedPlayer == null)
             {
-                if (!_playerList[2].isAdvanced)
+                if (!_playerList[0].isAdvanced)
                 {
-                    _selectedPlayer = (Player)_playerList[2];
+                    _selectedPlayer = (Player)_playerList[0];
                     HideIndicators();
-                    _indicatorPlayer[2].SetActive(true);
+                    _indicatorPlayer[0].SetActive(true);
                 }
             }
             if (Input.GetKey(KeyCode.E) || h < -0.4 && _advancedPlayer == null)
@@ -86,7 +116,8 @@ public class PlayerManager : MonoBehaviour {
             {
                 _selectedPlayer = null;
                 HideIndicators();
-            }
+            }*/
+            SelectPlayer(h, v);
 
             if (triggerRight > 0.5f && _selectedPlayer != null && !_selectedPlayer.isAdvanced )
             {
@@ -130,19 +161,37 @@ public class PlayerManager : MonoBehaviour {
             //    advancedPlayer.AttackCombo();
             //}
         }
+        #endregion
+        #region monsterturn
+        else if (TurnManager.GetInstance()._whoPlays == 1)
+        {
+            if(_focusedCharacter !=null)
+            {
+                if(XInput.instance.getButton(0, 'B') == ButtonState.Pressed)
+                {
+                    _focusedCharacter._paradeDiviser = 2;
+                }else if(XInput.instance.getButton(0, 'B') == ButtonState.Released)
+                {
+                    _focusedCharacter._paradeDiviser = 1;
+                }
+            }
+        }
+        #endregion
     }
 
     public void AllBack()
     {
+        _focusedCharacter = null;
         foreach(Player players in _playerList)
         {
             players.Back();
         }
+       
             //Camera.main.transform.DOLookAt(_initialCamPosition, 0.5f);
             //Camera.main.DOFieldOfView(60, 1f);
     }
 
-    void HideIndicators()
+    public void HideIndicators()
     {
         foreach (GameObject parIndicators in _indicatorPlayer)
         {

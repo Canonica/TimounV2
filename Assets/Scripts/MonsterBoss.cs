@@ -29,6 +29,7 @@ public class MonsterBoss : Entity {
     public override void Back()
     {
         transform.DOMove(_startPosition, 0.5f).OnComplete(() => _isAttacking = _isAdvanced = false);
+        PlayerManager.GetInstance()._focusedCharacter = null;
     }
 
     public override void Death()
@@ -49,7 +50,7 @@ public class MonsterBoss : Entity {
     {
         int rand = Random.Range(0, parListOfPlayer.Count);
         Debug.Log(rand);
-
+        PlayerManager.GetInstance()._focusedCharacter = (Player)parListOfPlayer[rand];
         transform.DOMove(parListOfPlayer[rand].transform.position + parListOfPlayer[rand].transform.right *2.0f, 0.5f).OnComplete(()=> StartCoroutine(Attack(parListOfPlayer[rand])));
         _isAdvanced = true;
     }

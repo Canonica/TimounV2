@@ -17,6 +17,7 @@ abstract public class Entity : MonoBehaviour {
 
     public int _pv;
     public int _breath;
+    public int _paradeDiviser;
     public List<Attack> _listOfAttacks;
     
     abstract public void TakeDamage(int parAmount);
