@@ -3,7 +3,19 @@ using System.Collections;
 using System.Collections.Generic;
 
 public class MonsterManager : MonoBehaviour {
-    
+
+    private static MonsterManager _instance = null;
+    public static MonsterManager GetInstance()
+    {
+        return _instance;
+    }
+
+    void Awake()
+    {
+        _instance = this;
+        //DontDestroyOnLoad(gameObject);
+    }
+
     public List<Entity> _playerList = new List<Entity>();
     
     public MonsterBoss _advancedMonster;

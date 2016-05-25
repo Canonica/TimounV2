@@ -56,9 +56,14 @@ public class XInput : MonoBehaviour
     }
 
 
-    public float getTrigger(int id)
+    public float getRightTrigger(int id)
     {
         return GamePad.GetState((PlayerIndex)(id)).Triggers.Right;
+    }
+
+    public float getLeftTrigger(int id)
+    {
+        return GamePad.GetState((PlayerIndex)(id)).Triggers.Left;
     }
 
     public ButtonState getButton(int id, char bt)

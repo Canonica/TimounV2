@@ -55,12 +55,17 @@ public class TurnManager : MonoBehaviour {
         _currentTimeTurn = _maxTimeTurn;
         _timer.fillAmount = 1;
         StartCoroutine(WaitForCdfloat(_maxTimeTurn));
+
+        foreach(Player _player in PlayerManager.GetInstance()._playerList)
+        {
+            _player._paradeDiviser = 1;
+        }
+
         if(_whoPlays == 0)
         {
             _whoPlays = 1;
             _textTurn.text = "Monster Turn";
-            //_allPlayers.allBack();
-            //_allPlayers.advancedPlayer = null;
+            //PlayerManager.GetInstance().HideIndicators();
         }
         else if (_whoPlays == 1)
         {
@@ -72,6 +77,9 @@ public class TurnManager : MonoBehaviour {
     public IEnumerator WaitBetweenTurn(float parCdTimer)
     {
         m_changingTurn = true;
+        PlayerManager.GetInstance().AllBack();
+        //_allPlayers.AllBack();
+        PlayerManager.GetInstance()._advancedPlayer = null;
         yield return new WaitForSeconds(parCdTimer);
         changeTurn();
     }
