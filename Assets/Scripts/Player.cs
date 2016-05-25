@@ -20,10 +20,15 @@ public class Player : Entity {
 
     void Start()
     {
-        _startPosition= transform.position;
+        //healthImage = GameObject.Find("HealthFull" + _id).GetComponent<Image>();
+        //staminaImage = GameObject.Find("StaminaFull" + _id).GetComponent<Image>();
 
-        healthImage = GameObject.Find("HealthFull" + _id).GetComponent<Image>();
-        staminaImage = GameObject.Find("StaminaFull" + _id).GetComponent<Image>();
+        
+    }
+
+    public void StartUpdate()
+    {
+        _startPosition = transform.position;
 
         _pvMax = this._pv;
         _breathMax = this._breath;
@@ -33,6 +38,9 @@ public class Player : Entity {
 
     void Update()
     {
+        if (GameManager.GetInstance()._gameState != GameManager.GameState.Combat)
+            return;
+
         healthImage.fillAmount = (float)((float)this._pv / (float)_pvMax);
         staminaImage.fillAmount = (float)((float)this._breath / (float)_breathMax);
     }

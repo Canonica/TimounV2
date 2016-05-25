@@ -25,7 +25,12 @@ public class TurnManager : MonoBehaviour {
     void Awake()
     {
         instance = this;
-        DontDestroyOnLoad(gameObject);
+        //DontDestroyOnLoad(gameObject);
+        
+    }
+
+    public void StartUpdate()
+    {
         _maxTimeTurn = 10;
         _currentTimeTurn = _maxTimeTurn;
         _isPlaying = false;
@@ -35,6 +40,9 @@ public class TurnManager : MonoBehaviour {
 
     void Update()
     {
+        if (GameManager.GetInstance()._gameState != GameManager.GameState.Combat)
+            return;
+
         _currentTimeTurn -= Time.deltaTime;
         if (!_isPlaying)
         {
@@ -51,6 +59,7 @@ public class TurnManager : MonoBehaviour {
 
     void changeTurn()
     {
+        
         m_changingTurn = false;
         _currentTimeTurn = _maxTimeTurn;
         _timer.fillAmount = 1;

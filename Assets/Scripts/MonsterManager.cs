@@ -25,6 +25,12 @@ public class MonsterManager : MonoBehaviour {
 
     // Use this for initialization
     void Start () {
+        
+
+    }
+
+    public void StartUpdate()
+    {
         _playerList = PlayerManager.GetInstance()._playerList;
         _isPlaying = false;
 
@@ -33,12 +39,15 @@ public class MonsterManager : MonoBehaviour {
         {
             _monsterList.Add(parPlayers.GetComponent<MonsterBoss>());
         }
-
     }
 	
 	// Update is called once per frame
 	void Update () {
-        if(TurnManager.GetInstance()._whoPlays == 1 && !_isPlaying)
+
+        if (GameManager.GetInstance()._gameState != GameManager.GameState.Combat)
+            return;
+
+        if (TurnManager.GetInstance()._whoPlays == 1 && !_isPlaying)
         {
             StartCoroutine(ExecuteMonsterTurn());
         }

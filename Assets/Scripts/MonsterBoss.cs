@@ -11,6 +11,11 @@ public class MonsterBoss : Entity {
 
     void Start()
     {
+        
+    }
+
+    public void StartUpdate()
+    {
         _startPosition = transform.position;
         _isAdvanced = false;
         _isAttacking = false;

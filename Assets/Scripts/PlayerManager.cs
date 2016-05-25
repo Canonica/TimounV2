@@ -25,12 +25,18 @@ public class PlayerManager : MonoBehaviour {
     void Awake()
     {
         _instance = this;
-        DontDestroyOnLoad(gameObject);
+        //DontDestroyOnLoad(gameObject);
     }
     // Use this for initialization
     void Start () {
+        HideIndicators();
+    }
+
+    public void StartUpdate()
+    {
+        Debug.Log("toto");
         GameObject[] tempPlayers = GameObject.FindGameObjectsWithTag("Player");
-        foreach(GameObject parPlayers in tempPlayers)
+        foreach (GameObject parPlayers in tempPlayers)
         {
             _playerList.Add(parPlayers.GetComponent<Player>());
         }
@@ -69,7 +75,9 @@ public class PlayerManager : MonoBehaviour {
 
 	// Update is called once per frame
 	void Update () {
-        
+        if (GameManager.GetInstance()._gameState != GameManager.GameState.Combat)
+            return;
+
         if (XInput.instance.getButton (0, 'R') == ButtonState.Pressed)
         {
             Debug.Log("test");
