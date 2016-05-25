@@ -74,8 +74,8 @@ public class PlayerManager : MonoBehaviour {
         {
             Debug.Log("test");
         }
-        float h = XInput.instance.getYStick(0);
-        float v = XInput.instance.getXStick(0);
+        float h = XInput.instance.getYStickLeft(0);
+        float v = XInput.instance.getXStickLeft(0);
 
         float triggerRight = XInput.instance.getRightTrigger(0);
         float triggerLeft = XInput.instance.getLeftTrigger(0);
