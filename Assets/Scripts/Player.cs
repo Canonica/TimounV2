@@ -20,8 +20,7 @@ public class Player : Entity {
 
     void Start()
     {
-        //healthImage = GameObject.Find("HealthFull" + _id).GetComponent<Image>();
-        //staminaImage = GameObject.Find("StaminaFull" + _id).GetComponent<Image>();
+        
 
         
     }
@@ -29,7 +28,8 @@ public class Player : Entity {
     public void StartUpdate()
     {
         _startPosition = transform.position;
-
+        healthImage = GameObject.Find("HealthFull" + _id).GetComponent<Image>();
+        staminaImage = GameObject.Find("StaminaFull" + _id).GetComponent<Image>();
         _pvMax = this._pv;
         _breathMax = this._breath;
 
